@@ -28,6 +28,7 @@ import android.media.MediaCodec;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.view.Surface;
+import com.google.android.exoplayer2.util.Log;
 import com.google.android.exoplayer2.util.MimeTypes;
 import java.nio.ByteBuffer;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -127,6 +128,7 @@ public class DecodeOneFrameUtil {
       // Queue the first video frame from the extractor.
       String mimeType = checkNotNull(mediaFormat.getString(MediaFormat.KEY_MIME));
       mediaCodec = MediaCodec.createDecoderByType(mimeType);
+      Log.e("STM-TEST", "DecodeOneFrameUtil, mediaCodec = MediaCodec.createDecoderByType(mimeType); x001");
       mediaCodec.configure(mediaFormat, surface, /* crypto= */ null, /* flags= */ 0);
       mediaCodec.start();
       int inputBufferIndex = mediaCodec.dequeueInputBuffer(DEQUEUE_TIMEOUT_US);

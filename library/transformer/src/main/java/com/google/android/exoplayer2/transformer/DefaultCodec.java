@@ -107,6 +107,7 @@ public final class DefaultCodec implements Codec {
       boolean requestedHdrToneMapping =
           SDK_INT >= 29 && Api29.isSdrToneMappingEnabled(configurationMediaFormat);
       mediaCodec = MediaCodec.createByCodecName(mediaCodecName);
+      Log.e("STM-TEST", "DefaultCodec, MediaCodec mediaCodec = MediaCodec.createByCodecName(codecName), x0011");
       configureCodec(mediaCodec, configurationMediaFormat, isDecoder, outputSurface);
       if (SDK_INT >= 29 && requestedHdrToneMapping) {
         // The MediaCodec input format reflects whether tone-mapping is possible after configure().

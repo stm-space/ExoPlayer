@@ -32,6 +32,7 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.decoder.CryptoInfo;
+import com.google.android.exoplayer2.util.Log;
 import com.google.android.exoplayer2.util.TraceUtil;
 import com.google.common.base.Supplier;
 import java.io.IOException;
@@ -93,6 +94,7 @@ import java.nio.ByteBuffer;
       try {
         TraceUtil.beginSection("createCodec:" + codecName);
         codec = MediaCodec.createByCodecName(codecName);
+        Log.e("STM-TEST", "AsynchronousMediaCodecAdapter, MediaCodec mediaCodec = MediaCodec.createByCodecName(codecName), x0010");
         codecAdapter =
             new AsynchronousMediaCodecAdapter(
                 codec,

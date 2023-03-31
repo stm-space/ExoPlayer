@@ -34,6 +34,7 @@ import android.media.MediaFormat;
 import android.os.Handler;
 import androidx.annotation.Nullable;
 import com.google.android.exoplayer2.util.ConditionVariable;
+import com.google.android.exoplayer2.util.Log;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Util;
 import java.io.Closeable;
@@ -231,6 +232,7 @@ public final class SsimHelper {
       String sampleMimeType = checkNotNull(mediaFormat.getString(MediaFormat.KEY_MIME));
       mediaFormat.setInteger(MediaFormat.KEY_COLOR_FORMAT, MEDIA_CODEC_COLOR_SPACE);
       mediaCodec = MediaCodec.createDecoderByType(sampleMimeType);
+      Log.e("STM-TEST", "SsimHelper, mediaCodec = MediaCodec.createDecoderByType(mimeType); x002");
       mediaCodec.configure(
           mediaFormat, imageReader.getSurface(), /* crypto= */ null, /* flags= */ 0);
       mediaCodec.start();

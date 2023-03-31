@@ -24,6 +24,7 @@ import static org.robolectric.Shadows.shadowOf;
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.os.HandlerThread;
+import android.util.Log;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.decoder.CryptoInfo;
@@ -52,6 +53,7 @@ public class AsynchronousMediaCodecBufferEnqueuerTest {
   @Before
   public void setUp() throws IOException {
     codec = MediaCodec.createByCodecName("h264");
+    Log.e("STM-TEST", "AsynchronousMediaCodecBufferEnqueuerTest, MediaCodec mediaCodec = MediaCodec.createByCodecName(codecName), x008");
     codec.configure(new MediaFormat(), /* surface= */ null, /* crypto= */ null, /* flags= */ 0);
     codec.start();
     handlerThread = new TestHandlerThread("TestHandlerThread");

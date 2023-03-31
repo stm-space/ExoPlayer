@@ -29,6 +29,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.decoder.CryptoInfo;
+import com.google.android.exoplayer2.util.Log;
 import com.google.android.exoplayer2.util.TraceUtil;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
@@ -72,6 +73,7 @@ public final class SynchronousMediaCodecAdapter implements MediaCodecAdapter {
       String codecName = configuration.codecInfo.name;
       TraceUtil.beginSection("createCodec:" + codecName);
       MediaCodec mediaCodec = MediaCodec.createByCodecName(codecName);
+      Log.e("STM-TEST", "SynchronousMediaCodecAdapter, MediaCodec mediaCodec = MediaCodec.createByCodecName(codecName), x009");
       TraceUtil.endSection();
       return mediaCodec;
     }
